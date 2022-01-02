@@ -38,7 +38,6 @@ function moveLift() {
 }
 
 function startLift() {
-    console.log('Start Lift')
     if (!!lift_queue_vertical_position.length) {
         moveLift();
     }
