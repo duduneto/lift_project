@@ -81,7 +81,7 @@ main {
 .box-elevator .lift {
     width: 120px;
     height: calc(20% - 1rem);
-    background-color: red;
+    background-color: #FFF;
 
     position: absolute;
     animation-fill-mode: forwards;

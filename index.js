@@ -7,30 +7,47 @@ let lift_queue_vertical_position = [];
 document.querySelectorAll('BUTTON').forEach(buttonElement => {
     buttonElement.addEventListener('click', () => {
         const currentfloor = buttonElement.parentElement.parentElement.parentElement;
-        const targetFloor = document.getElementById('floor_'+buttonElement.value);
-        // moveLift(lift.offsetTop, targetFloor.offsetTop)
-        lift_queue_vertical_position = [...lift_queue_vertical_position, currentfloor.offsetTop, targetFloor.offsetTop]
-        lift_queue = [...lift_queue, currentfloor.getAttribute('floor'), targetFloor.getAttribute('floor')]
+        const targetFloor = document.getElementById('floor_' + buttonElement.value);
+        lift_queue_vertical_position = [...lift_queue_vertical_position, currentfloor.offsetTop, targetFloor.offsetTop];
+        lift_queue = [...lift_queue, currentfloor.getAttribute('floor'), targetFloor.getAttribute('floor')];
+        startLift()
     })
 })
 
 
-function moveLift(fromPositionY, toPositionY) {
-    var pos = fromPositionY;
+// LIFT CONTROLLERS
+
+function moveLift() {
+    var pos = lift.offsetTop;
     clearInterval(lift_id_interval);
     lift_id_interval = setInterval(frame, 10);
     function frame() {
-        if (pos == toPositionY) {
+        if (pos == lift_queue_vertical_position[0]) {
             clearInterval(lift_id_interval);
+            // Reach Target Floor
+            reachFloor();
         } else {
-            if (fromPositionY <= toPositionY) {
+            if (lift.offsetTop <= lift_queue_vertical_position[0]) {
                 pos++;
             } else {
-                pos = pos-1;
+                pos = pos - 1;
             }
             lift.style.top = pos + 'px';
         }
     }
 }
 
-// QUEUE LIFT CONTROLLERS
+function startLift() {
+    console.log('Start Lift')
+    if (!!lift_queue_vertical_position.length) {
+        moveLift();
+    }
+}
+
+function reachFloor() {
+    // Clean QUEUE
+    lift_queue_vertical_position.splice(0, 1);
+    lift_queue.splice(0, 1);
+
+    setTimeout(startLift, 1000)
+}
