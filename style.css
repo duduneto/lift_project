@@ -1,0 +1,88 @@
+html {
+    width: 100%;
+    height: 100%;
+    font-family: 'Quicksand', sans-serif;
+    /* background-image: linear-gradient(315deg, #060138, #110138); */
+    background-image: linear-gradient(#100A32, #372556);
+    color: #fff;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.floor {
+    width: 100%;
+    height: calc(20% - 1rem);
+    background-color: aliceblue;
+
+    margin-bottom: 1rem;
+
+    display: flex;
+
+    position: relative;
+}
+
+.floor h2 {
+    margin: 0;
+    color: black;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.floor .lift_space {
+    height: 100%;
+    width: 100%;
+    display: flex;
+
+    justify-content: center;
+}
+.floor .lift_space .cta_lift_container {
+    height: 100%;
+    width: 200px;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 0 1rem;
+}
+.floor .lift_space .lift_hall {
+    height: 100%;
+    width: 150px;
+    background-color: black;
+}
+
+.box-elevator {
+    height: 100%;
+    width: 150px;
+    background-image: linear-gradient(#100A32, #372556);
+
+    position: absolute;
+    top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+}
+
+.box-elevator .lift {
+    width: 120px;
+    height: calc(20% - 1rem);
+    background-color: red;
+
+    position: absolute;
+    animation-fill-mode: forwards;
+}
