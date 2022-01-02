@@ -2,7 +2,7 @@ const lift = document.getElementById('lift');
 var lift_id_interval = null;
 let lift_floors = [];
 
-
+// Configure all floor buttons
 document.querySelectorAll('BUTTON').forEach(buttonElement => {
     buttonElement.addEventListener('click', () => {
         const currentfloor = buttonElement.parentElement.parentElement.parentElement;
